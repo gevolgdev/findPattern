@@ -1,8 +1,6 @@
 const Input = document.querySelector('.input-text');
 const AddButton = document.querySelector('.button-add');
-const AnalyzeButton = document.querySelector('.analyze-button');
 const PatternsContainer = document.querySelector('.patterns');
-const AnaliticsContainer = document.querySelector('.datas');
 // -----------------------------------------------------------
 
 let variables = [];
@@ -18,25 +16,14 @@ const handleVariable = (e) => {
 
 Input.addEventListener('change', handleVariable);
 
-
-const renderVariables = () => {
-  PatternsContainer.innerHTML = '';
-  const patternsDiv = document.createElement('div');
-
-  variables.forEach(item => {
-    patternsDiv.innerHTML = `<div class="pattern"> <span>${item}</span> </div>`;
-    PatternsContainer.appendChild(patternsDiv.firstChild);
-  });
-};
-
 const renderAnalyze = (arr) => {
-  AnaliticsContainer.innerHTML = '';
+  PatternsContainer.innerHTML = '';
   const analyzeDiv = document.createElement('div');
 
   arr.forEach(obj => {
     Object.keys(obj).forEach(item => {
-      analyzeDiv.innerHTML = `<div class=""> <span>${obj[item]}</span> </div>`;
-      AnaliticsContainer.appendChild(analyzeDiv.firstChild);
+      analyzeDiv.innerHTML = `<div class="pattern"> <span>${obj[item]}</span> </div>`;
+      PatternsContainer.appendChild(analyzeDiv.firstChild);
     })
   });
 };
@@ -48,12 +35,12 @@ const handleAddVariable = () => {
   } 
   else {
     variables.push(variable);
-    renderVariables();
   };
 
   allVariables.push(variable);
   Input.value = '';
   findPattern();
+  analyzeData();
 };
 
 AddButton.addEventListener('click', handleAddVariable);
@@ -90,11 +77,8 @@ const analyzeData = () => {
   for(let value in findPattern()) {
     let message;
     percentage = parseInt((findPattern()[value] / allVariables.length) * 100);
-    message = `Valor do ${[value]} - (${findPattern()[value]}): ${percentage}%`;
+    message = `(${findPattern()[value]}) - ${[value]}: ${percentage}%`;
     resultPattern.push({[value]: message});
   };
   renderAnalyze(resultPattern);
 };
-AnalyzeButton.addEventListener('click', analyzeData);
-
-
