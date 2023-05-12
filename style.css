@@ -1,0 +1,80 @@
+* {margin: 0; padding: 0; box-sizing: border-box;}
+body {
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 16px;
+  background: #efeef5;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 1000px;
+  margin: 0 auto;
+  padding: 50px 0;
+}
+.title {
+  font-size: 3rem;
+  color: #1f1f1f;
+}
+.input-text {
+  width: 300px;
+  padding: 13px;
+  margin-top: 50px;
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 1rem;
+  border-radius: 4px;
+  border: none;
+  outline-color: #658cfe;
+}
+.button-add, .analyze-button {
+  width: 80px;
+  padding: 10px 0;
+  margin-left: 20px;
+  border-radius: 4px;
+  background: #658cfe;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+.analyze-button {
+  background: transparent;
+  color:#1f1f1f;
+  border: solid 1px #1f1f1f;
+  margin-top: 50px;
+}
+.analyze-button:hover {
+  background: rgb(212, 212, 212);
+}
+.analitics {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.datas {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 50px;
+}
+
+/* ----------------------------------------- */
+
+.patterns {
+  width: 100%;
+  margin-top: 70px;
+  gap: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.pattern {
+  width: 250px;
+  padding: 15px 0;
+  display: flex;
+  justify-content: center;
+  border-radius: 4px;
+  background: white;
+  filter: drop-shadow(0 10px 10px rgb(0 0 0 / 0.05));
+}
